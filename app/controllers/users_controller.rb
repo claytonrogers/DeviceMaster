@@ -1,3 +1,6 @@
+require 'rubygems'
+require 'rqrcode'
+
 class UsersController < ApplicationController
   # GET /users
   # GET /users.json
@@ -14,10 +17,12 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
+    @qr = RQRCode::QRCode.new( request.url, :size => 4, :level => :h )
 
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @user }
+      format.svg { render :qrcode => request.url, :level => :h, :unit => 10 }
     end
   end
 

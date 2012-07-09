@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.6'
 gem 'jquery-rails', '2.0.0'
 gem 'rqrcode-rails3'
+gem 'rqrcode'
+
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -23,8 +25,8 @@ group :assets do
 end
 
 group :production do
-  gem 'mysql2', '~> 0.2.7'
   gem 'pg', '~> 0.13.2'
+  gem 'mysql2', '~> 0.3.7'
 end
 
 
